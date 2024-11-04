@@ -1,0 +1,19 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine on
+
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+#páginas
+
+RewriteRule ^login?$ views/login.php
+RewriteRule ^home/?$ views/home.php
+RewriteRule ^products/?$ views/products/index.php
+RewriteRule ^products/create/?$ views/products/create.php
+RewriteRule ^products/edit/([^/]+)/?$ views/products/edit.php
+RewriteRule ^products/([^/]+)/?$ views/products/details.php
+
+#controladores
+RewriteRule ^auth?$ app/AuthController.php
+RewriteRule ^api-products?$ app/ProductController.php
